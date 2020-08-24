@@ -1,6 +1,7 @@
 package com.ssafy.happyhouse.view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -40,6 +41,7 @@ public class newWindow extends JFrame {
 		model = new DefaultTableModel(tableTitles[value], 20);
 		Table = new JTable(model);
 		Pan = new JScrollPane(Table);
+		Pan.setPreferredSize(new Dimension(800,500));
 		Table.setColumnSelectionAllowed(true);
 		panel.add(new JLabel(frameTitles[value], JLabel.CENTER), "North");
 		panel.add(Pan, "Center");
@@ -47,7 +49,7 @@ public class newWindow extends JFrame {
 		NewWindowContainer.add(panel);
 		curDong = dong;
 
-		setSize(800, 550);
+		setSize(900, 600);
 		setResizable(false);
 		setVisible(true);
 
@@ -94,7 +96,7 @@ public class newWindow extends JFrame {
 		environmentImpl.create();
 		
 		
-		List<EnvironmentInfo> envs = environmentImpl.search();
+		List<EnvironmentInfo> envs = environmentImpl.search(curDong);
 		if (envs != null) {
 			int i = 0;
 			String[][] data = new String[envs.size()][4];

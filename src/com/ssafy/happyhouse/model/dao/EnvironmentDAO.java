@@ -7,5 +7,5 @@ public interface EnvironmentDAO {
 
 	void create();
 
-	List<EnvironmentInfo> search();
+	List<EnvironmentInfo> search(String dong);
 }

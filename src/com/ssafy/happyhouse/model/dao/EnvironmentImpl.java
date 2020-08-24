@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ssafy.happyhouse.model.dto.EnvironmentInfo;
+import com.ssafy.happyhouse.model.dto.PannelInfo;
 
 public class EnvironmentImpl implements EnvironmentDAO {
 
@@ -51,10 +52,20 @@ public class EnvironmentImpl implements EnvironmentDAO {
 			e.printStackTrace();
 		}
 	}
-
+	
 	@Override
-	public List<EnvironmentInfo> search() {
-		return list;
+	public List<EnvironmentInfo> search(String dong) {
+		List<EnvironmentInfo> data = new ArrayList<>();
+		for(EnvironmentInfo env : list) {
+//			System.out.println(env.getAddress());
+//			System.out.println(dong);
+//			System.out.println(env.getAddress().contains(dong));
+			if(env.getAddress().contains(dong)) {
+				data.add(env);
+			}
+		}
+		return data;
 	}
+
 
 }

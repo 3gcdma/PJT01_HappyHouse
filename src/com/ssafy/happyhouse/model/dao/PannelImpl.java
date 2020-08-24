@@ -54,9 +54,9 @@ public class PannelImpl implements PannelDAO{
 	public List<PannelInfo> search(String dong) {
 		List<PannelInfo> data = new ArrayList<>();
 		for(PannelInfo pen : list) {
-			System.out.println(pen.getAddress());
-			System.out.println(dong);
-			System.out.println(pen.getAddress().contains(dong));
+//			System.out.println(pen.getAddress());
+//			System.out.println(dong);
+//			System.out.println(pen.getAddress().contains(dong));
 			if(pen.getAddress().contains(dong)) {
 				data.add(pen);
 			}
