@@ -81,8 +81,22 @@ public class HouseDaoImpl implements HouseDao{
 		// 해당하는 no 가 없을 경우 null 을 리턴하세요.
 	
 		for(HouseDeal houseDeal : search) {
-			if(houseDeal.getNo()==no)
-				return houseDeal;
+			if(houseDeal.getNo()==no) {
+				HouseDeal tmp = houseDeal;
+				
+				if(houseInfo.containsKey(houseDeal.getDong()+houseDeal.getAptName())) {
+					HouseInfo info = houseInfo.get(houseDeal.getDong()+houseDeal.getAptName());
+					tmp.setBuildYear(info.getBuildYear());
+					tmp.setCode(info.getCode());
+					tmp.setLat(info.getLat());
+					tmp.setLng(info.getLng());
+					tmp.setJibun(info.getJibun());
+					tmp.setImg(info.getImg());
+				}
+				
+				return tmp;
+			}
+				
 		}
 		
 		return null;
