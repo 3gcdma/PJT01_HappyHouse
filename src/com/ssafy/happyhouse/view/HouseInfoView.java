@@ -22,6 +22,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import com.ssafy.happyhouse.model.dao.PannelImpl;
 import com.ssafy.happyhouse.model.dto.HouseDeal;
 import com.ssafy.happyhouse.model.dto.HousePageBean;
 import com.ssafy.happyhouse.model.service.HouseService;
@@ -68,6 +69,9 @@ public class HouseInfoView extends JFrame{
 	/** 화면에 표시하고 있는 주택 */
 	private HouseDeal curHouse;
 
+	private PannelImpl pmgr = PannelImpl.getInstance();
+	
+	
 	private void showHouseInfo(int code) {
 
 		curHouse = houseService.search(code);
@@ -339,8 +343,7 @@ public class HouseInfoView extends JFrame{
 		private DefaultTableModel model;
 		private JTable Table;
 		private JScrollPane Pan;
-		private String[][] tableTitles = {{ "업체명", "점검기관명", "소재지주소" }, { "업체명", "점검기관명", "소재지주소" }};
-		
+		private String[][] tableTitles = {{ "업체명", "점검기관명", "소재지주소" }, { "상호명", "업종명", "소재지주소" }};
 		
 	    newWindow(int value) {
 	    	
@@ -357,8 +360,9 @@ public class HouseInfoView extends JFrame{
 			Pan = new JScrollPane(Table);
 			Table.setColumnSelectionAllowed(true);
 			panel.add(new JLabel(frameTitles[value], JLabel.CENTER), "North");
-			panel.add(housePan, "Center");
-        
+			panel.add(Pan, "Center");
+			///mgr.create();
+			//mgr.search(); // list반환
 	        
 	        NewWindowContainer.add(panel);
 	        
