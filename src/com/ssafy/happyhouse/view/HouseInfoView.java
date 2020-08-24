@@ -167,7 +167,10 @@ public class HouseInfoView extends JFrame {
 		JPanel leftBottom = new JPanel(new GridLayout(1, 2));
 		envBt = new JButton("주변 환경 지도");
 		storeBt = new JButton("주변 상가 정보");
-
+		
+		leftBottom.add(envBt);
+		leftBottom.add(storeBt);
+		
 		envBt.addActionListener(new ActionListener() {
 			// 만들어진 버튼 "새 창 띄우기"에 버튼이 눌러지면 발생하는 행동을 정의
 			@Override
@@ -188,8 +191,7 @@ public class HouseInfoView extends JFrame {
 
 		});
 
-		leftBottom.add(envBt);
-		leftBottom.add(storeBt);
+		
 
 		/*
 		 * //환경오염지도 테이블 envModel = new DefaultTableModel(envTitle,10); envTable = new

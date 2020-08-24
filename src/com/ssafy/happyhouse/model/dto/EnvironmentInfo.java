@@ -1,16 +1,16 @@
 package com.ssafy.happyhouse.model.dto;
 
-public class EnvironmentMap {
+public class EnvironmentInfo {
 	private String name;
 	private String type;
 	private String checkAgency;
 	private String address;
 	
-	public EnvironmentMap() {
+	public EnvironmentInfo() {
 		super();
 	}
 
-	public EnvironmentMap(String name, String type, String checkAgency, String address) {
+	public EnvironmentInfo(String name, String type, String checkAgency, String address) {
 		super();
 		this.name = name;
 		this.type = type;

@@ -10,10 +10,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import com.ssafy.happyhouse.model.dto.EnvironmentMap;
+import com.ssafy.happyhouse.model.dao.EnvironmentImpl;
+import com.ssafy.happyhouse.model.dao.PannelImpl;
+import com.ssafy.happyhouse.model.dto.EnvironmentInfo;
 import com.ssafy.happyhouse.model.dto.HouseDeal;
 import com.ssafy.happyhouse.model.dto.HousePageBean;
-import com.ssafy.happyhouse.model.dto.Store;
+import com.ssafy.happyhouse.model.dto.PannelInfo;
 
 public class newWindow extends JFrame {
 	// 버튼이 눌러지면 만들어지는 새 창을 정의한 클래스
@@ -24,7 +26,7 @@ public class newWindow extends JFrame {
 	private DefaultTableModel model;
 	private JTable Table;
 	private JScrollPane Pan;
-	private String[][] tableTitles = { { "업체명", "업종명", "점검기관명", "소재지주소" }, { "업체명", "점검기관명", "소재지주소" } };
+	private String[][] tableTitles = { { "업체명", "업종명", "점검기관명", "소재지주소" }, { "상호명", "상권업종중분류명", "도로명주소" , "경도" ,"위도" } };
 
 	newWindow(int value) {
 
@@ -56,25 +58,29 @@ public class newWindow extends JFrame {
 			showEnv();
 			break;
 		case 1:
-			showStore();
+			showPannel();
 			break;
 		}
 	}
 	// 주의, 여기서 setDefaultCloseOperation() 정의를 하지 말아야 한다
 	// 정의하게 되면 새 창을 닫으면 모든 창과 프로그램이 동시에 꺼진다
 
-	public void showStore() {
+	public void showPannel() {
 
-		List<Store> stores = selectStore;
-		if (stores != null) {
+		PannelImpl pannelImpl = PannelImpl.getInstance();
+		pannelImpl.create();
+		
+		
+		List<PannelInfo> pannels = pannelImpl.search();
+		if (pannels != null) {
 			int i = 0;
-			String[][] data = new String[stores.size()][5];
-			for (Store store : stores) {
-				data[i][0] = "" + store.getNo();
-				data[i][1] = store.getDong();
-				data[i][2] = store.getAptName();
-				data[i][3] = store.getDealAmount();
-				data[i++][4] = store.getType();
+			String[][] data = new String[pannels.size()][5];
+			for (PannelInfo pannel : pannels) {
+				data[i][0] = "" + pannel.getName();
+				data[i][1] = pannel.getSelection();
+				data[i][2] = pannel.getAddress();
+				data[i][3] = pannel.getHard();
+				data[i++][4] = pannel.getLati();
 			}
 			model.setDataVector(data, tableTitles[1]);
 		}
@@ -82,11 +88,15 @@ public class newWindow extends JFrame {
 
 	public void showEnv() {
 
-		List<EnvironmentMap> envs = selectEnv;
+		EnvironmentImpl environmentImpl = EnvironmentImpl.getInstance();
+		environmentImpl.create();
+		
+		
+		List<EnvironmentInfo> envs = environmentImpl.search();
 		if (envs != null) {
 			int i = 0;
 			String[][] data = new String[envs.size()][4];
-			for (EnvironmentMap env : envs) {
+			for (EnvironmentInfo env : envs) {
 				data[i][0] = "" + env.getName();
 				data[i][1] = env.getType();
 				data[i][2] = env.getCheckAgency();
@@ -94,5 +104,7 @@ public class newWindow extends JFrame {
 			}
 			model.setDataVector(data, tableTitles[0]);
 		}
+		
+		
 	}
 }
