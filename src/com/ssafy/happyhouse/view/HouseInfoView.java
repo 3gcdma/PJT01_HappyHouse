@@ -7,6 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -27,7 +31,7 @@ import com.ssafy.happyhouse.model.dto.HousePageBean;
 import com.ssafy.happyhouse.model.service.HouseService;
 import com.ssafy.happyhouse.model.service.HouseServiceImpl;
 
-public class HouseInfoView extends JFrame{
+public class HouseInfoView extends JFrame {
 
 	/** model들 */
 	private HouseService houseService;
@@ -173,7 +177,7 @@ public class HouseInfoView extends JFrame{
 			}
 
 		});
-		
+
 		storeBt.addActionListener(new ActionListener() {
 			// 만들어진 버튼 "새 창 띄우기"에 버튼이 눌러지면 발생하는 행동을 정의
 			@Override
@@ -329,47 +333,5 @@ public class HouseInfoView extends JFrame{
 //	public static void main(String[] args) {
 //		new HouseInfoView();
 //	}
-
-	class newWindow extends JFrame {
-	    // 버튼이 눌러지면 만들어지는 새 창을 정의한 클래스
-		
-		String[] frameTitles = {"주변 환경 지도","주변 상가 정보"};
-		
-		/** 조회 내용 표시할 table */
-		private DefaultTableModel model;
-		private JTable Table;
-		private JScrollPane Pan;
-		private String[][] tableTitles = {{ "업체명", "점검기관명", "소재지주소" }, { "업체명", "점검기관명", "소재지주소" }};
-		
-		
-	    newWindow(int value) {
-	    	
-	        setTitle(frameTitles[value]);
-	        
-	        
-	        JPanel NewWindowContainer = new JPanel();
-	        setContentPane(NewWindowContainer);
-	        
-	        
-	        JPanel panel = new JPanel(new BorderLayout());
-	        model = new DefaultTableModel(tableTitles[value], 20);
-	        Table = new JTable(model);
-			Pan = new JScrollPane(Table);
-			Table.setColumnSelectionAllowed(true);
-			panel.add(new JLabel(frameTitles[value], JLabel.CENTER), "North");
-			panel.add(housePan, "Center");
-        
-	        
-	        NewWindowContainer.add(panel);
-	        
-	        setSize(800,550);
-	        setResizable(false);
-	        setVisible(true);
-	    }
-	 // 주의, 여기서 setDefaultCloseOperation() 정의를 하지 말아야 한다
-        // 정의하게 되면 새 창을 닫으면 모든 창과 프로그램이 동시에 꺼진다
-	}
-
-
 
 }
