@@ -180,7 +180,7 @@ public class HouseInfoView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new newWindow(0); // 클래스 newWindow를 새로 만들어낸다
+				new newWindow(0, curHouse.getDong()); // 클래스 newWindow를 새로 만들어낸다
 			}
 
 		});
@@ -190,7 +190,7 @@ public class HouseInfoView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new newWindow(1); // 클래스 newWindow를 새로 만들어낸다
+				new newWindow(1, curHouse.getDong()); // 클래스 newWindow를 새로 만들어낸다
 			}
 
 		});

@@ -36,11 +36,7 @@ public class PannelImpl implements PannelDAO{
 		    	
 		    	tmp.setName(values[1]);
 		    	tmp.setSelection(values[6]);
-		    	tmp.setAddress(values[31]);
-<<<<<<< HEAD
-		    	tmp.setHard(Integer.parseInt(values[37]));
-		    	tmp.setLati(Integer.parseInt(values[38]));
-=======
+		    	tmp.setAddress(values[24]);
 		    	tmp.setHard(values[37]);
 		    	tmp.setLati(values[38]);
 >>>>>>> prepare
@@ -56,8 +52,17 @@ public class PannelImpl implements PannelDAO{
 	}
 
 	@Override
-	public List<PannelInfo> search() {
-		return list;
+	public List<PannelInfo> search(String dong) {
+		List<PannelInfo> data = new ArrayList<>();
+		for(PannelInfo pen : list) {
+			System.out.println(pen.getAddress());
+			System.out.println(dong);
+			System.out.println(pen.getAddress().contains(dong));
+			if(pen.getAddress().contains(dong)) {
+				data.add(pen);
+			}
+		}
+		return data;
 	}
 
 }

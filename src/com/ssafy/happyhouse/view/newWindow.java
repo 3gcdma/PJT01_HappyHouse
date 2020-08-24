@@ -27,8 +27,9 @@ public class newWindow extends JFrame {
 	private JTable Table;
 	private JScrollPane Pan;
 	private String[][] tableTitles = { { "업체명", "업종명", "점검기관명", "소재지주소" }, { "상호명", "상권업종중분류명", "도로명주소" , "경도" ,"위도" } };
-
-	newWindow(int value) {
+	
+	private String curDong;
+	newWindow(int value, String dong) {
 
 		setTitle(frameTitles[value]);
 
@@ -44,6 +45,7 @@ public class newWindow extends JFrame {
 		panel.add(Pan, "Center");
 
 		NewWindowContainer.add(panel);
+		curDong = dong;
 
 		setSize(800, 550);
 		setResizable(false);
@@ -71,7 +73,7 @@ public class newWindow extends JFrame {
 		pannelImpl.create();
 		
 		
-		List<PannelInfo> pannels = pannelImpl.search();
+		List<PannelInfo> pannels = pannelImpl.search(curDong);
 		if (pannels != null) {
 			int i = 0;
 			String[][] data = new String[pannels.size()][5];
