@@ -28,7 +28,7 @@ public class HouseDealSAXHandler extends DefaultHandler {
 	public void startElement(String uri, String localName, String qName, Attributes att ){
 		if(qName.equals("item")){
 			house = new HouseDeal(HouseSaxParser.no++);
-			house.setType(HouseDeal.APT_DEAL);
+			house.setType(HouseDeal.HOUSE_DEAL);
 			houses.add(house);
 		}
 	}
