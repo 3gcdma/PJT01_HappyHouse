@@ -37,8 +37,13 @@ public class PannelImpl implements PannelDAO{
 		    	tmp.setName(values[1]);
 		    	tmp.setSelection(values[6]);
 		    	tmp.setAddress(values[31]);
+<<<<<<< HEAD
 		    	tmp.setHard(Integer.parseInt(values[37]));
 		    	tmp.setLati(Integer.parseInt(values[38]));
+=======
+		    	tmp.setHard(values[37]);
+		    	tmp.setLati(values[38]);
+>>>>>>> prepare
 		    	list.add(tmp);
 		    }
 		} catch (FileNotFoundException e) {

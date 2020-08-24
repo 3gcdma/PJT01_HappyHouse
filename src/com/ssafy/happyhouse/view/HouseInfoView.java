@@ -7,6 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -28,7 +32,7 @@ import com.ssafy.happyhouse.model.dto.HousePageBean;
 import com.ssafy.happyhouse.model.service.HouseService;
 import com.ssafy.happyhouse.model.service.HouseServiceImpl;
 
-public class HouseInfoView extends JFrame{
+public class HouseInfoView extends JFrame {
 
 	/** model들 */
 	private HouseService houseService;
@@ -167,7 +171,10 @@ public class HouseInfoView extends JFrame{
 		JPanel leftBottom = new JPanel(new GridLayout(1, 2));
 		envBt = new JButton("주변 환경 지도");
 		storeBt = new JButton("주변 상가 정보");
-
+		
+		leftBottom.add(envBt);
+		leftBottom.add(storeBt);
+		
 		envBt.addActionListener(new ActionListener() {
 			// 만들어진 버튼 "새 창 띄우기"에 버튼이 눌러지면 발생하는 행동을 정의
 			@Override
@@ -177,7 +184,7 @@ public class HouseInfoView extends JFrame{
 			}
 
 		});
-		
+
 		storeBt.addActionListener(new ActionListener() {
 			// 만들어진 버튼 "새 창 띄우기"에 버튼이 눌러지면 발생하는 행동을 정의
 			@Override
@@ -188,8 +195,7 @@ public class HouseInfoView extends JFrame{
 
 		});
 
-		leftBottom.add(envBt);
-		leftBottom.add(storeBt);
+		
 
 		/*
 		 * //환경오염지도 테이블 envModel = new DefaultTableModel(envTitle,10); envTable = new
@@ -334,6 +340,7 @@ public class HouseInfoView extends JFrame{
 //		new HouseInfoView();
 //	}
 
+<<<<<<< HEAD
 	class newWindow extends JFrame {
 	    // 버튼이 눌러지면 만들어지는 새 창을 정의한 클래스
 		
@@ -376,4 +383,6 @@ public class HouseInfoView extends JFrame{
 
 
 
+=======
+>>>>>>> prepare
 }

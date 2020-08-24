@@ -4,8 +4,13 @@ public class PannelInfo {
 	private String name;
 	private String selection;
 	private String address;
+<<<<<<< HEAD
 	private int Lati;
 	private int Hard;
+=======
+	private String Lati;
+	private String Hard;
+>>>>>>> prepare
 	public String getName() {
 		return name;
 	}
@@ -24,6 +29,7 @@ public class PannelInfo {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+<<<<<<< HEAD
 	public int getLati() {
 		return Lati;
 	}
@@ -37,6 +43,21 @@ public class PannelInfo {
 		Hard = hard;
 	}
 	public PannelInfo(String name, String selection, String address, int lati, int hard) {
+=======
+	public String getLati() {
+		return Lati;
+	}
+	public void setLati(String lati) {
+		Lati = lati;
+	}
+	public String getHard() {
+		return Hard;
+	}
+	public void setHard(String hard) {
+		Hard = hard;
+	}
+	public PannelInfo(String name, String selection, String address, String lati, String hard) {
+>>>>>>> prepare
 		super();
 		this.name = name;
 		this.selection = selection;
