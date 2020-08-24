@@ -6,6 +6,6 @@ import com.ssafy.happyhouse.model.dto.PannelInfo;
 public interface PannelDAO {
 	void create();
 	
-	List<PannelInfo> search();
+	List<PannelInfo> search(String dong);
 	
 }
